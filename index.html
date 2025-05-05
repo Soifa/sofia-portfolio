@@ -1,23 +1,198 @@
 <!DOCTYPE html>
-<style>
-  /* netnet default bg */
-  body {
-    margin: 0;
-    background-image: linear-gradient(#515199a8 2px, transparent 1px),
-      linear-gradient(90deg, #515199a8 2px, transparent 1px);
-    background-size: 50px 50px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name — Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: #111A19;
+        /* darkest background */
+        color: #F8D794;
+        /* text color */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-  body::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(0deg, #c76ebca8, #515199a8);
-  }
-</style>
-    
+      header {
+        background-color: #284139;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        color: #F8D794;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      nav a:hover {
+        color: #BB6830;
+      }
+
+      .main-layout {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        gap: 2rem;
+        padding: 2rem;
+        height: calc(100vh - 120px);
+        box-sizing: border-box;
+      }
+
+      section {
+        background-color: #284139;
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-y: auto;
+      }
+
+      .cta-button {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        background-color: #BB6830;
+        color: #111A19;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .cta-button:hover {
+        background-color: #A15525;
+      }
+
+      .project-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        margin-top: 1rem;
+      }
+
+      .project-card {
+        background-color: #809076;
+        padding: 1rem;
+        border-radius: 8px;
+        color: #111A19;
+      }
+
+      .project-card h3 {
+        margin-top: 0;
+      }
+
+      .left-column {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .center-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .right-column {
+        overflow-y: auto;
+      }
+
+      #about {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        height: 100%;
+      }
+
+      .about-text-scroll {
+        overflow-y: auto;
+        max-height: 300px;
+        /* Adjust height as needed */
+        padding-right: 0.5rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+      }
+
+      /* Optional: Better paragraph spacing */
+      .about-text-scroll p {
+        margin-bottom: 1rem;
+      }
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <h1>Your Name</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="main-layout">
+      <!-- Left Column -->
+      <div class="left-column">
+        <section id="portfolio">
+          <h2>Portfolio</h2>
+          <p>Highlight some of your key projects here.</p>
+          <a href="#projects" class="cta-button">Browse my portfolio</a>
+        </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Interested in collaborating? Reach out via email or social media.</p>
+          <p>Email: <a href="mailto:you@example.com" style="color: #00bcd4;">you@example.com</a></p>
+        </section>
+      </div>
+
+      <!-- Center Column -->
+      <div class="center-column">
+        <section id="about">
+          <img src="IMG_1755.JPG" alt="Your Photo" style="width: 250px; height: 200px; border-radius: 10%; object-fit: cover; margin-bottom: 1rem;">
+          <h2>About Me</h2>
+          <div class="about-text-scroll">
+            <p>As a Global Business and Digital Arts student at the University of Waterloo, I blend a solid foundation in economics and business with a passion for digital design. My academic journey has equipped me with professional proficiency in Adobe Creative Suite—including Illustrator, Photoshop, InDesign, Premiere Pro, and Audition—and has allowed me to create a diverse range of projects such as logos, posters, mock-ups, prototypes, films, documentaries, audio pieces, and magazines.</p>
+            <p>I consider myself both imaginative and detail-oriented. I love to let my creativity explore uncharted territories, yet I also strive for perfection in every project, ensuring that even the smallest details are meticulously crafted. My passion for reading fantasy literature has exposed me to countless extraordinary worlds, continually pushing the boundaries of my imagination. Additionally, I find great satisfaction in video editing—assembling clips and refining details to build immersive worlds that transport audiences into compelling stories.</p>
+          </div>
+          <a href="your-resume.pdf" class="cta-button" target="_blank">View Resume</a>
+        </section>
+
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <section id="projects">
+          <h2>My Projects</h2>
+          <div class="project-grid">
+            <div class="project-card">
+              <h3>Project One</h3>
+              <p>A short description of your first featured project, what it does, and your role.</p>
+              <a href="#" class="cta-button">View Project</a>
+            </div>
+            <div class="project-card">
+              <h3>Project Two</h3>
+              <p>Description of the second project, focusing on outcomes or technologies used.</p>
+              <a href="#" class="cta-button">View Project</a>
+            </div>
+            <div class="project-card">
+              <h3>Project Three</h3>
+              <p>Highlight key features or what makes this project unique.</p>
+              <a href="#" class="cta-button">View Project</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
