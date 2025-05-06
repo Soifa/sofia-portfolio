@@ -48,12 +48,21 @@
         overflow: hidden;
       }
 
+      /* Add scrollable behavior to the columns */
+      .left-column,
+      .center-column,
+      .right-column {
+        overflow-y: auto;
+        height: 100%;
+      }
+
       section {
         background: rgba(255, 255, 255, 0.6);
         padding: 1.5rem;
         border-radius: 12px;
         backdrop-filter: blur(6px);
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem; /* Add space between sections */
       }
 
       .cta-button {
@@ -81,6 +90,7 @@
         border-radius: 10px;
         color: #333;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 1rem; /* Add space between project cards */
       }
 
       .carousel-container {
@@ -91,7 +101,6 @@
         padding: 1rem 0;
         scroll-behavior: smooth;
       }
-
 
       .carousel img {
         scroll-snap-align: center;
@@ -135,7 +144,6 @@
         font-size: 2.5rem;
         font-weight: 700;
         color: #2a2a2a;
-        /* Strong dark gray for contrast */
         background: linear-gradient(to right, #6db4ff, #ff69b4);
         padding: 0.5rem 1rem;
         border-radius: 8px;
@@ -253,7 +261,6 @@
     </div>
   </div>
 
-
   <body>
     <header>
       <h1>Sofia Xu</h1>
@@ -273,7 +280,6 @@
           <p>Highlight some of your key projects here.</p>
           <div class="carousel-container">
             <div class="carousel" id="carousel">
-              <!-- Clones (end) -->
               <img src="Section 3.png" alt="Project 1">
               <img src="Video Watching.png" alt="Project 2">
               <img src="Xu_Sofia_W8.png" alt="Project 3">
@@ -308,8 +314,7 @@
           <h2>About Me</h2>
           <div class="about-text-scroll">
             <p>As a Global Business and Digital Arts student at the University of Waterloo, I blend a solid foundation in economics and business with a passion for digital design. My academic journey has equipped me with professional proficiency in Adobe Creative Suite—including Illustrator, Photoshop, InDesign, Premiere Pro, and Audition—and has allowed me to create a diverse range of projects such as logos, posters, mock-ups, prototypes, films, documentaries, audio pieces, and magazines.</p>
-            <p>I consider myself both imaginative and detail-oriented. I love to let my creativity explore uncharted territories, yet I also strive for perfection in every project, ensuring that even the smallest details are meticulously crafted. My passion for reading fantasy literature has exposed me to countless extraordinary worlds, continually pushing the boundaries of my imagination. Additionally, I find great satisfaction in video editing—assembling clips and refining details to build immersive worlds that transport audiences into compelling stories.
-            </p>
+            <p>I consider myself both imaginative and detail-oriented. I love to let my creativity explore uncharted territories, yet I also strive for perfection in every project, ensuring that even the smallest details are meticulously crafted. My passion for reading fantasy literature has exposed me to countless extraordinary worlds, continually pushing the boundaries of my imagination. Additionally, I find great satisfaction in video editing—assembling clips and refining details to build immersive worlds that transport audiences into compelling stories.</p>
           </div>
           <a href="your-resume.pdf" class="cta-button" target="_blank">View Resume</a>
         </section>
@@ -332,7 +337,7 @@
             </div>
             <div class="project-card">
               <h3>WeFilm</h3>
-              <p>Dedicated Platform for Independent Filmmakers for them to gain advantage like Creative Control, Crowdfunding Opportunities and so on...</p>
+              <p>Dedicated Platform for Independent Filmmakers...</p>
               <a href="#" class="cta-button">View Project</a>
             </div>
           </div>
@@ -347,7 +352,6 @@
       const lightboxImg = document.getElementById("lightbox-img");
       const closeBtn = document.querySelector(".lightbox-close");
 
-      // Attach click to each image
       document.querySelectorAll(".carousel img").forEach(img => {
         img.addEventListener("click", () => {
           lightbox.style.display = "flex";
@@ -356,7 +360,6 @@
         });
       });
 
-      // Close on click of X or outside image
       closeBtn.addEventListener("click", () => {
         lightbox.style.display = "none";
       });
@@ -368,22 +371,22 @@
       });
     </script>
     <script>
-      const portfolioImages = document.querySelectorAll('#carousel img');
-      let currentIndex = 0;
+      const portfolioImages = document.querySelectorAll(".carousel img");
+      let activeIndex = 0;
+      const setActiveImage = () => {
+        portfolioImages.forEach(img => img.classList.remove("active"));
+        portfolioImages[activeIndex].classList.add("active");
+      };
 
-      function cycleHighlight() {
-        portfolioImages.forEach((img, i) => {
-          img.classList.remove('pulse-border');
+      portfolioImages.forEach((img, index) => {
+        img.addEventListener("click", () => {
+          activeIndex = index;
+          setActiveImage();
         });
+      });
 
-        portfolioImages[currentIndex].classList.add('pulse-border');
-        currentIndex = (currentIndex + 1) % portfolioImages.length;
-      }
-
-      setInterval(cycleHighlight, 2200); // Cycle every 2.2 seconds
-      cycleHighlight(); // Initial run
+      // Initial set active image
+      setActiveImage();
     </script>
-
-
   </body>
 </html>
